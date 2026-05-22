@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- SEO META TAGS -->
+  <title>ScrollStop — Break Free From Social Media Addiction | Free Forever</title>
+  <meta name="description" content="Stop wasting 7 hours/day on social media. ScrollStop helps you track your screen-free streak, fight urges with the Panic Button, and join 12,000+ people reclaiming their lives. 100% Free.">
+  <meta name="keywords" content="stop social media addiction, screen time reduction, digital detox, quit instagram addiction, stop scrolling, social media detox, phone addiction help, screen free challenge, quit tiktok, digital wellbeing">
+  <meta name="author" content="ScrollStop">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://jnanesh8867.github.io/scrollstop/">
+
+  <!-- OPEN GRAPH (WhatsApp, Facebook preview) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jnanesh8867.github.io/scrollstop/">
+  <meta property="og:title" content="ScrollStop — Stop Wasting Your Life Scrolling">
+  <meta property="og:description" content="The average person wastes 7 hours/day on social media. That's 2,555 hours a year. Join 12,000+ people breaking free. 100% Free forever.">
+  <meta property="og:image" content="https://jnanesh8867.github.io/scrollstop/og-image.png">
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ScrollStop — Break Free From Social Media">
+  <meta name="twitter:description" content="Stop wasting 7 hours/day. Join 12,000+ people going scroll-free. Free forever.">
+
+  <!-- SCHEMA.ORG for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ScrollStop",
+    "url": "https://jnanesh8867.github.io/scrollstop/",
+    "description": "A free global movement helping people break free from social media addiction",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://jnanesh8867.github.io/scrollstop/"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;700&family=Figtree:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --black: #0d0d0d;
+      --blue: #1a56ff;
+      --red: #ff2d55;
+      --green: #00c896;
+      --gray: #e8e2d9;
+      --darkgray: #888;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--black); font-family: 'Figtree', sans-serif; overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(245,240,232,0.95); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--black); text-decoration: none; }
+    .logo span { color: var(--blue); }
+    .nav-btn { background: var(--black); color: var(--bg); border: none; padding: 0.6rem 1.5rem; font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: none; letter-spacing: 1px; transition: all 0.2s; }
+    .nav-btn:hover { background: var(--blue); }
+
+    .ticker { background: var(--red); padding: 0.6rem 0; overflow: hidden; white-space: nowrap; margin-top: 60px; }
+    .ticker-track { display: inline-block; animation: ticker 25s linear infinite; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 2px; color: white; }
+    @keyframes ticker { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--black); color: var(--bg); font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; padding: 0.4rem 1rem; margin-bottom: 2rem; width: fit-content; animation: fadeUp 0.6s ease both; }
+    .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 1.5s ease infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.5)} }
+
+    .hero h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(3rem, 9vw, 7rem); line-height: 0.95; letter-spacing: -2px; animation: fadeUp 0.7s ease 0.1s both; }
+    .highlight { color: var(--blue); position: relative; display: inline-block; }
+    .highlight::after { content: ''; position: absolute; bottom: 4px; left: 0; right: 0; height: 5px; background: var(--red); z-index: -1; }
+    .strikethrough { position: relative; color: var(--darkgray); }
+    .strikethrough::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 4px; background: var(--red); }
+
+    .hero-sub { font-size: clamp(0.95rem, 2vw, 1.2rem); color: var(--darkgray); margin: 2rem 0 2.5rem; max-width: 560px; line-height: 1.7; animation: fadeUp 0.7s ease 0.2s both; }
+    .hero-sub strong { color: var(--black); }
+
+    .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s ease 0.3s both; }
+    .btn-main { background: var(--blue); color: white; border: none; padding: 1rem 2.5rem; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; cursor: pointer; text-decoration: none; letter-spacing: 1px; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-main:hover { background: var(--black); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(26,86,255,0.3); }
+    .btn-ghost { background: transparent; color: var(--black); border: 2px solid var(--black); padding: 1rem 2.5rem; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; cursor: pointer; text-decoration: none; letter-spacing: 1px; transition: all 0.2s; }
+    .btn-ghost:hover { background: var(--black); color: var(--bg); }
+
+    .stats-bar { background: var(--black); color: var(--bg); padding: 2rem; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.2rem; color: var(--blue); }
+    .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(245,240,232,0.4); letter-spacing: 2px; text-transform: uppercase; margin-top: 0.2rem; }
+
+    .section-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--blue); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .section-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2rem, 5vw, 4rem); line-height: 1; letter-spacing: -1px; margin-bottom: 2.5rem; }
+
+    /* PROBLEM */
+    .problem { padding: 5rem 2rem; max-width: 1000px; margin: 0 auto; }
+    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: rgba(0,0,0,0.08); }
+    .problem-card { background: var(--bg); padding: 2rem 1.5rem; transition: all 0.3s; }
+    .problem-card:hover { background: var(--black); color: var(--bg); }
+    .problem-card:hover p { color: rgba(245,240,232,0.6); }
+    .problem-card:hover .p-num { color: var(--blue); }
+    .p-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 3.5rem; color: rgba(0,0,0,0.05); line-height: 1; margin-bottom: 0.75rem; transition: all 0.3s; }
+    .problem-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.6rem; }
+    .problem-card p { font-size: 0.85rem; color: var(--darkgray); line-height: 1.7; transition: color 0.3s; }
+
+    /* FEATURES */
+    .features { background: var(--black); padding: 5rem 2rem; color: var(--bg); }
+    .features-inner { max-width: 1000px; margin: 0 auto; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .feature-card { border: 1px solid rgba(245,240,232,0.08); padding: 1.75rem; transition: all 0.3s; }
+    .feature-card:hover { border-color: var(--blue); transform: translateY(-5px); }
+    .feature-icon { font-size: 2.2rem; margin-bottom: 1.2rem; display: block; }
+    .feature-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--blue); margin-bottom: 0.6rem; }
+    .feature-card p { font-size: 0.85rem; color: rgba(245,240,232,0.5); line-height: 1.7; }
+
+    /* STREAK */
+    .streak-section { padding: 5rem 2rem; max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    @media(max-width:700px){.streak-section{grid-template-columns:1fr;}}
+    .streak-phone { background: var(--black); border-radius: 36px; padding: 2.5rem 1.75rem; color: var(--bg); border: 7px solid #222; max-width: 300px; margin: 0 auto; }
+    .streak-phone::before { content:''; display:block; width:70px; height:5px; background:#333; border-radius:10px; margin:0 auto 1.75rem; }
+    .streak-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 4.5rem; color: var(--green); text-align: center; line-height: 1; }
+    .streak-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: rgba(245,240,232,0.4); text-align: center; letter-spacing: 3px; margin-top: 0.4rem; text-transform: uppercase; }
+    .streak-bars { display: flex; gap: 5px; margin: 1.75rem 0; align-items: flex-end; height: 70px; }
+    .bar { flex: 1; background: rgba(245,240,232,0.08); border-radius: 3px; position: relative; overflow: hidden; }
+    .bar-fill { position: absolute; bottom: 0; left: 0; right: 0; background: var(--green); border-radius: 3px; }
+    .panic-btn { width: 100%; background: var(--red); color: white; border: none; padding: 0.9rem; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; border-radius: 10px; cursor: pointer; letter-spacing: 1px; margin-top: 0.75rem; transition: all 0.2s; }
+    .panic-btn:hover { transform: scale(1.02); box-shadow: 0 5px 20px rgba(255,45,85,0.4); }
+
+    /* MONEY SECTION */
+    .money-section { background: var(--black); padding: 5rem 2rem; color: var(--bg); }
+    .money-inner { max-width: 1000px; margin: 0 auto; }
+    .money-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: rgba(245,240,232,0.05); margin-top: 2.5rem; }
+    .money-card { background: var(--black); padding: 2rem 1.5rem; border-left: 3px solid transparent; transition: all 0.3s; }
+    .money-card:hover { border-left-color: var(--green); }
+    .money-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .money-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--green); margin-bottom: 0.5rem; }
+    .money-card p { font-size: 0.85rem; color: rgba(245,240,232,0.5); line-height: 1.7; }
+    .money-card .earning { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--green); margin-top: 0.75rem; }
+
+    /* JOIN */
+    .join-section { background: var(--blue); padding: 5rem 2rem; text-align: center; }
+    .join-inner { max-width: 580px; margin: 0 auto; }
+    .join-section h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2rem, 6vw, 4rem); color: white; line-height: 1; letter-spacing: -1px; margin-bottom: 0.75rem; }
+    .join-section p { color: rgba(255,255,255,0.7); margin-bottom: 2.5rem; font-size: 0.95rem; }
+    .join-form { display: flex; flex-direction: column; gap: 0.85rem; }
+    .join-form input, .join-form select { width: 100%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.9rem 1.1rem; font-family: 'Figtree', sans-serif; font-size: 0.95rem; outline: none; transition: border-color 0.2s; border-radius: 4px; }
+    .join-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .join-form input:focus, .join-form select:focus { border-color: white; }
+    .join-form select option { background: var(--blue); }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+    @media(max-width:500px){.form-row-2{grid-template-columns:1fr;}}
+    .join-submit { width: 100%; background: white; color: var(--blue); border: none; padding: 1.1rem; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; cursor: pointer; letter-spacing: 1px; transition: all 0.2s; border-radius: 4px; }
+    .join-submit:hover { background: var(--black); color: white; transform: translateY(-2px); }
+    .success-box { display: none; background: rgba(255,255,255,0.15); border: 1px solid white; color: white; padding: 1.25rem; margin-top: 0.75rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; line-height: 1.7; border-radius: 4px; }
+
+    /* SHARE */
+    .share-section { padding: 4rem 2rem; text-align: center; max-width: 700px; margin: 0 auto; }
+    .share-section h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 4vw, 3.5rem); letter-spacing: -1px; margin-bottom: 0.75rem; }
+    .share-section p { color: var(--darkgray); margin-bottom: 1.75rem; font-size: 0.9rem; }
+    .share-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .share-btn { background: var(--black); color: var(--bg); border: none; padding: 0.8rem 1.75rem; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s; letter-spacing: 1px; }
+    .share-btn:hover { background: var(--blue); transform: translateY(-3px); }
+
+    footer { background: var(--black); color: var(--bg); padding: 2.5rem 2rem; text-align: center; }
+    .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .footer-logo span { color: var(--blue); }
+    footer p { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(245,240,232,0.25); letter-spacing: 2px; margin-top: 0.4rem; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 999; justify-content: center; align-items: center; flex-direction: column; text-align: center; padding: 2rem; }
+    .modal.active { display: flex; }
+    .modal h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.5rem; color: var(--red); margin-bottom: 0.75rem; }
+    .modal p { color: rgba(255,255,255,0.7); font-size: 1.1rem; max-width: 380px; line-height: 1.7; margin-bottom: 1.75rem; }
+    .modal-close { background: var(--green); color: var(--black); border: none; padding: 0.9rem 2.5rem; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; cursor: pointer; letter-spacing: 1px; }
+    .breathe { font-size: 3.5rem; animation: breathe 4s ease infinite; margin-bottom: 0.75rem; }
+    @keyframes breathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }
+  </style>
+</head>
+<body>
+
+<div class="modal" id="panicModal">
+  <div class="breathe">🫁</div>
+  <h2>STOP. BREATHE.</h2>
+  <p>You are stronger than the urge to scroll. Take 3 deep breaths. Your streak is worth protecting.</p>
+  <button class="modal-close" onclick="closePanic()">✅ I'M OKAY NOW</button>
+</div>
+
+<nav>
+  <a href="#" class="logo">Scroll<span>Stop</span></a>
+  <a href="#join" class="nav-btn">JOIN FREE</a>
+</nav>
+
+<div class="ticker">
+  <span class="ticker-track">📵 STOP THE SCROLL &nbsp;•&nbsp; RECLAIM YOUR LIFE &nbsp;•&nbsp; FREE FOREVER &nbsp;•&nbsp; 12,000+ MEMBERS &nbsp;•&nbsp; YOUR ATTENTION IS YOUR SUPERPOWER &nbsp;•&nbsp; 📵 STOP THE SCROLL &nbsp;•&nbsp; RECLAIM YOUR LIFE &nbsp;•&nbsp; FREE FOREVER &nbsp;•&nbsp;</span>
+</div>
+
+<section class="hero">
+  <div class="hero-badge"><div class="dot"></div>LIVE — 12,847 PEOPLE SCROLL-FREE TODAY</div>
+  <h1>STOP<br><span class="highlight">WASTING</span><br>YOUR LIFE<br><span class="strikethrough">SCROLLING</span></h1>
+  <p class="hero-sub">The average person spends <strong>7 hours/day</strong> on social media. That's <strong>2,555 hours a year</strong>. What could YOU do with that time?</p>
+  <div class="cta-row">
+    <a href="#join" class="btn-main">📵 START FREE TODAY</a>
+    <a href="#features" class="btn-ghost">SEE HOW IT WORKS</a>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num" id="userCount">0</div><div class="stat-label">Members Worldwide</div></div>
+  <div class="stat"><div class="stat-num">7hrs</div><div class="stat-label">Avg Daily Waste</div></div>
+  <div class="stat"><div class="stat-num" id="streakCount">0</div><div class="stat-label">Streak Days Saved</div></div>
+  <div class="stat"><div class="stat-num">🆓</div><div class="stat-label">Always Free</div></div>
+</div>
+
+<section class="problem">
+  <div class="reveal">
+    <div class="section-tag">The Problem</div>
+    <h2 class="section-title">SOCIAL MEDIA<br>IS DESIGNED<br>TO TRAP YOU</h2>
+  </div>
+  <div class="problem-grid reveal">
+    <div class="problem-card"><div class="p-num">01</div><h3>Infinite Scroll</h3><p>Apps are engineered by PhD psychologists to keep you scrolling forever. It's not your fault — it's by design.</p></div>
+    <div class="problem-card"><div class="p-num">02</div><h3>Dopamine Hijack</h3><p>Every like and notification triggers dopamine — same as gambling. You're being played by billion-dollar companies.</p></div>
+    <div class="problem-card"><div class="p-num">03</div><h3>Lost Productivity</h3><p>Students can't study. Workers can't focus. Creatives can't create. We're drowning in distraction.</p></div>
+    <div class="problem-card"><div class="p-num">04</div><h3>Mental Health Crisis</h3><p>Anxiety, depression, FOMO — all amplified by apps you open 150 times a day.</p></div>
+  </div>
+</section>
+
+<section id="features" class="features">
+  <div class="features-inner">
+    <div class="reveal">
+      <div class="section-tag" style="color:var(--green)">How It Works</div>
+      <h2 class="section-title" style="color:var(--bg)">YOUR TOOLS<br>TO BREAK FREE</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal"><span class="feature-icon">🔥</span><h3>Streak Tracker</h3><p>Track your scroll-free days. The longer your streak, the stronger you become. Don't break the chain.</p></div>
+      <div class="feature-card reveal"><span class="feature-icon">🚨</span><h3>Panic Button</h3><p>Feeling the urge? Hit panic. We snap you back to reality in seconds with breathing exercises.</p></div>
+      <div class="feature-card reveal"><span class="feature-icon">🌍</span><h3>Global Community</h3><p>Join thousands fighting the same battle worldwide. Share wins, stay accountable together.</p></div>
+      <div class="feature-card reveal"><span class="feature-icon">📊</span><h3>Time Saved Counter</h3><p>See exactly how many hours you've reclaimed. Use that time for things that actually matter.</p></div>
+      <div class="feature-card reveal"><span class="feature-icon">🎯</span><h3>Daily Pledge</h3><p>Every morning, commit to one scroll-free day. Small commitments build massive transformations.</p></div>
+      <div class="feature-card reveal"><span class="feature-icon">🆓</span><h3>100% Free</h3><p>No subscriptions. No hidden fees. No ads. Freedom from addiction shouldn't cost money.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="streak-section">
+  <div class="reveal">
+    <div class="section-tag">Live Demo</div>
+    <h2 class="section-title">YOUR STREAK<br>STARTS TODAY</h2>
+    <p style="color:var(--darkgray);line-height:1.7;font-size:0.95rem">Every scroll-free day is a victory. Watch your streak grow. Feel the difference in focus, sleep, and mental clarity.</p>
+  </div>
+  <div class="streak-phone reveal">
+    <div class="streak-num" id="streakDemo">0</div>
+    <div class="streak-label">DAYS SCROLL-FREE</div>
+    <div class="streak-bars" id="streakBars"></div>
+    <button class="panic-btn" onclick="openPanic()">🚨 PANIC BUTTON — TRY IT</button>
+  </div>
+</section>
+
+<!-- MONEY SECTION -->
+<section class="money-section">
+  <div class="money-inner">
+    <div class="reveal">
+      <div class="section-tag" style="color:var(--green)">For Creators & Partners</div>
+      <h2 class="section-title" style="color:var(--bg)">EARN WITH<br>SCROLLSTOP</h2>
+    </div>
+    <div class="money-grid">
+      <div class="money-card reveal">
+        <div class="money-icon">🤝</div>
+        <h3>Affiliate Partners</h3>
+        <p>Promote digital wellness tools, books, and apps to our audience. Earn commission on every sale.</p>
+        <div class="earning">💰 Earn: ₹500–₹5,000/month</div>
+      </div>
+      <div class="money-card reveal">
+        <div class="money-icon">📢</div>
+        <h3>Sponsored Content</h3>
+        <p>Mental health apps, productivity tools, and wellness brands pay to reach our engaged community.</p>
+        <div class="earning">💰 Earn: ₹2,000–₹20,000/post</div>
+      </div>
+      <div class="money-card reveal">
+        <div class="money-icon">🎓</div>
+        <h3>Digital Courses</h3>
+        <p>Sell "21-Day Digital Detox" courses, eBooks, and guides to members who want deeper support.</p>
+        <div class="earning">💰 Earn: ₹1,000–₹10,000/course</div>
+      </div>
+      <div class="money-card reveal">
+        <div class="money-icon">👕</div>
+        <h3>Merchandise</h3>
+        <p>"I Quit Scrolling" t-shirts, stickers, and phone cases for movement members worldwide.</p>
+        <div class="earning">💰 Earn: ₹200–₹500/item</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="join" class="join-section">
+  <div class="join-inner">
+    <h2>JOIN THE MOVEMENT</h2>
+    <p>Free forever. No excuses. Start your streak today.</p>
+    <div class="join-form">
+      <div class="form-row-2">
+        <input type="text" id="jName" placeholder="Your name"/>
+        <input type="email" id="jEmail" placeholder="your@email.com"/>
+      </div>
+      <div class="form-row-2">
+        <select id="jCountry">
+          <option value="">Your country</option>
+          <option>India 🇮🇳</option>
+          <option>United States 🇺🇸</option>
+          <option>United Kingdom 🇬🇧</option>
+          <option>Nigeria 🇳🇬</option>
+          <option>Brazil 🇧🇷</option>
+          <option>Philippines 🇵🇭</option>
+          <option>Pakistan 🇵🇰</option>
+          <option>Kenya 🇰🇪</option>
+          <option>Other 🌍</option>
+        </select>
+        <select id="jProblem">
+          <option value="">Biggest addiction</option>
+          <option>Instagram</option>
+          <option>YouTube</option>
+          <option>TikTok</option>
+          <option>Twitter/X</option>
+          <option>All of them 😅</option>
+        </select>
+      </div>
+      <button class="join-submit" onclick="joinScrollStop()">📵 START MY STREAK — IT'S FREE</button>
+      <div class="success-box" id="joinSuccess">✅ WELCOME TO SCROLLSTOP!<br><br>Your streak starts NOW. Day 1 begins today.<br>Share this with someone who needs it 👇<br><br>#ScrollStop #ReclaimYourLife</div>
+    </div>
+  </div>
+</section>
+
+<section class="share-section">
+  <div class="reveal">
+    <h2>SHARE THE MOVEMENT</h2>
+    <p>Someone you know needs this. Send it to them right now.</p>
+    <div class="share-btns">
+      <a class="share-btn" href="https://wa.me/?text=📵 I joined ScrollStop — breaking free from social media addiction. It's FREE. Join me 👉 https://jnanesh8867.github.io/scrollstop %23ScrollStop %23ReclaimYourLife" target="_blank">📱 WHATSAPP</a>
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=📵 Breaking free from social media addiction with ScrollStop. Day 1 starts NOW. Join me free 👉 https://jnanesh8867.github.io/scrollstop %23ScrollStop %23ReclaimYourLife" target="_blank">🐦 TWITTER</a>
+      <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://jnanesh8867.github.io/scrollstop" target="_blank">📘 FACEBOOK</a>
+      <button class="share-btn" onclick="copyLink()">🔗 COPY LINK</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Scroll<span>Stop</span></div>
+  <p>GLOBAL MOVEMENT · FREE FOREVER · EST. 2026</p>
+  <p style="margin-top:0.4rem">#ScrollStop #ReclaimYourLife #DigitalDetox #BreakFree</p>
+  <p style="margin-top:0.75rem;color:rgba(245,240,232,0.15)">Contact: scrollstop.movement@gmail.com</p>
+</footer>
+
+<script>
+  function animCount(id, target) {
+    const el = document.getElementById(id);
+    let n = 0; const step = Math.ceil(target/60);
+    const iv = setInterval(() => { n = Math.min(n+step, target); el.textContent = n.toLocaleString(); if(n>=target) clearInterval(iv); }, 25);
+  }
+  function getUsers() {
+    let base = parseInt(localStorage.getItem('ss_users') || '12847');
+    let last = parseInt(localStorage.getItem('ss_time') || Date.now());
+    base += Math.floor((Date.now()-last)/60000)*5;
+    localStorage.setItem('ss_users', base); localStorage.setItem('ss_time', Date.now());
+    return base;
+  }
+  animCount('userCount', getUsers());
+  animCount('streakCount', 94720);
+
+  let sd = 0;
+  const sEl = document.getElementById('streakDemo');
+  const iv = setInterval(() => { if(sd<21){sd++;sEl.textContent=sd;}else clearInterval(iv); }, 80);
+
+  const barsEl = document.getElementById('streakBars');
+  [20,35,40,55,60,70,100].forEach(h => {
+    const b = document.createElement('div'); b.className='bar';
+    b.innerHTML=`<div class="bar-fill" style="height:${h}%"></div>`; barsEl.appendChild(b);
+  });
+
+  function openPanic() { document.getElementById('panicModal').classList.add('active'); document.body.style.overflow='hidden'; }
+  function closePanic() { document.getElementById('panicModal').classList.remove('active'); document.body.style.overflow=''; }
+
+  function joinScrollStop() {
+    const name=document.getElementById('jName').value;
+    const email=document.getElementById('jEmail').value;
+    const country=document.getElementById('jCountry').value;
+    if(!name||!email||!country){alert('Please fill name, email and country 📵');return;}
+    let base=parseInt(localStorage.getItem('ss_users')||'12847'); base++;
+    localStorage.setItem('ss_users',base);
+    document.getElementById('userCount').textContent=base.toLocaleString();
+    document.getElementById('joinSuccess').style.display='block';
+    const btn=document.querySelector('.join-submit');
+    btn.textContent='✅ STREAK STARTED — DAY 1!';
+    btn.style.background='#00c896'; btn.style.color='white';
+  }
+
+  function copyLink() {
+    navigator.clipboard.writeText('https://jnanesh8867.github.io/scrollstop').then(()=>alert('Link copied! Share with friends 📵'));
+  }
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+</script>
+</body>
+</html>
